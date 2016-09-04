@@ -1,0 +1,36 @@
+{
+  "name": "todolist-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "//": "'&&' - for Anding and '&' - for concurrency '|' - for piping. But concurrency wasn't working so used a package called concurrently",
+  "//watchify": "'d' - debug and 'v' - verbose 'o'-output and 't'-transform",
+  "//windows": "only start will open a new cmd prompt and run the command /B or /MIN will run in same prompt but in background",
+  "//json": "Finally got it working using concurrently module and escaping the double quotes in json instead of using single quotes in double quote.phewwwwwww",
+  "scripts": {
+    "serve": "npm run test && concurrently \"npm run bundle\" \"npm run server\"",
+    "clean": "rimraf ./dist && mkdir dist",
+    "bundle": "watchify -dv -t [ babelify ] scripts/index.js -o dist/bundle.js",
+    "server": "live-server --port=1234 --browser=chrome --entry-file=index.html --ignore=\"node_modules, scripts, dist\"",
+    "test": "node_modules/.bin/tape -r babel-register tests/*.js | faucet"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.9.0",
+    "babelify": "^7.3.0",
+    "concurrently": "^2.2.0",
+    "sinon": "^1.17.4",
+    "tape": "^4.6.0",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
+    "react-router": "^2.6.0"
+  }
+}

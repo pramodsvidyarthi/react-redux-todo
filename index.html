@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TODO List</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script> -->
+    <style type="text/css">
+#todo-list li span.lead {
+        margin-left: 10px;
+    }
+    
+    #todo-list li.completed span.lead {
+        color: #d9d9d9;
+        text-decoration: line-through;
+    }
+    
+    #todo-list .btn-default.close {
+        visibility: hidden;
+    }
+    
+    #todo-list li:hover .btn-default.close {
+        visibility: visible;
+    }
+    
+    #todo-list li input.editing {
+    	display: block!important;
+        position: absolute;
+        left: 0;
+        height: 100%;
+        padding: 0;
+        margin-top: -10px;
+        z-index: 101;
+    }
+    
+    #todo-list .btn-default.close:hover {
+        border-color: transparent;
+        background-color: transparent;
+    }
+    
+    #remaining-todos {
+        padding-top: 6px;
+    }
+    
+    .center-content {
+        display: table;
+        /* workaround for getting fluid widths to align to center */
+        text-align: center;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container">
+    </div>
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/g/react@15.2.1(react-with-addons.min.js+react-dom.min.js)"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react-router/2.5.2/ReactRouter.min.js"></script> -->
+    <!-- <script type="text/javascript" src="./scripts/utils.js"></script> -->
+    <!-- <script type="text/javascript" src="./scripts/todoModel.js"></script> -->
+    <script type="text/javascript" src="./dist/bundle.js"></script>
+</body>
+
+</html>
