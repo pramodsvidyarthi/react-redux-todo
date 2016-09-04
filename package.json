@@ -8,8 +8,8 @@
   "//windows": "only start will open a new cmd prompt and run the command /B or /MIN will run in same prompt but in background",
   "//json": "Finally got it working using concurrently module and escaping the double quotes in json instead of using single quotes in double quote.phewwwwwww",
   "scripts": {
-    "serve": "npm run test && concurrently \"npm run bundle\" \"npm run server\"",
-    "clean": "rimraf ./dist && mkdir dist",
+    "serve": "npm run test && npm run clean && concurrently \"npm run bundle\" \"npm run server\"",
+    "clean": "IF exist dist ( rd /s /q dist ) ELSE ( mkdir dist )",
     "bundle": "watchify -dv -t [ babelify ] scripts/index.js -o dist/bundle.js",
     "server": "live-server --port=1234 --browser=chrome --entry-file=index.html --ignore=\"node_modules, scripts, dist\"",
     "test": "node_modules/.bin/tape -r babel-register tests/*.js | faucet"
